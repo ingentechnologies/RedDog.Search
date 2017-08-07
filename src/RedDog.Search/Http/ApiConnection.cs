@@ -9,9 +9,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
-using RedDog.Search.Model.Internal;
+using Ingen.RedDog.Search.Model.Internal;
 
-namespace RedDog.Search.Http
+namespace Ingen.RedDog.Search.Http
 {
     public class ApiConnection : IDisposable
     {

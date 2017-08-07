@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 
-namespace RedDog.Search.Http
+namespace Ingen.RedDog.Search.Http
 {
     public class ApiRequest : IApiRequest
     {

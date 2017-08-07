@@ -1,4 +1,4 @@
-﻿namespace RedDog.Search.Http
+﻿namespace Ingen.RedDog.Search.Http
 {
     public static class ApiConstants
     {

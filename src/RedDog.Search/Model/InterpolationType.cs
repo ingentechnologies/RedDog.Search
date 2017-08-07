@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace RedDog.Search.Model
+namespace Ingen.RedDog.Search.Model
 {
     [DataContract]
     public enum InterpolationType

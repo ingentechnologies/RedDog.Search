@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace RedDog.Search.Http
+namespace Ingen.RedDog.Search.Http
 {
     public interface IApiResponse<out TResult> : IApiResponse
     {

@@ -4,11 +4,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-using RedDog.Search.Http;
-using RedDog.Search.Model;
-using RedDog.Search.Model.Internal;
+using Ingen.RedDog.Search.Http;
+using Ingen.RedDog.Search.Model;
+using Ingen.RedDog.Search.Model.Internal;
 
-namespace RedDog.Search
+namespace Ingen.RedDog.Search
 {
     public class IndexManagementClient : IDisposable
     {

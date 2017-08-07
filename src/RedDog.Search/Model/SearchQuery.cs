@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace RedDog.Search.Model
+namespace Ingen.RedDog.Search.Model
 {
     public class SearchQuery
     {

@@ -2,7 +2,7 @@
 using System.Xml;
 using Newtonsoft.Json;
 
-namespace RedDog.Search.Http
+namespace Ingen.RedDog.Search.Http
 {
     public class XsdDurationConverter : JsonConverter
     {

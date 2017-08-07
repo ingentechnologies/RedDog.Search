@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedDog.Search", "RedDog.Search\RedDog.Search.csproj", "{F3CDC9C8-A12F-429C-A9DA-FB57A9619CCD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingen.RedDog.Search", "RedDog.Search\Ingen.RedDog.Search.csproj", "{F3CDC9C8-A12F-429C-A9DA-FB57A9619CCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

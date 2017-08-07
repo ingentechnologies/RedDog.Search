@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace RedDog.Search.Model
+namespace Ingen.RedDog.Search.Model
 {
     public class ScoringProfile
     {

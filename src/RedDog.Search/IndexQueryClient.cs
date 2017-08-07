@@ -5,10 +5,10 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-using RedDog.Search.Http;
-using RedDog.Search.Model;
+using Ingen.RedDog.Search.Http;
+using Ingen.RedDog.Search.Model;
 
-namespace RedDog.Search
+namespace Ingen.RedDog.Search
 {
     public class IndexQueryClient : IDisposable
     {

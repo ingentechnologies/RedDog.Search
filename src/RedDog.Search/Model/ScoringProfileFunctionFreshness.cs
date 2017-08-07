@@ -1,8 +1,8 @@
 using System;
 using Newtonsoft.Json;
-using RedDog.Search.Http;
+using Ingen.RedDog.Search.Http;
 
-namespace RedDog.Search.Model
+namespace Ingen.RedDog.Search.Model
 {
     public class ScoringProfileFunctionFreshness
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace RedDog.Search.Model
+namespace Ingen.RedDog.Search.Model
 {
     public static class LookupQueryExtensions
     {

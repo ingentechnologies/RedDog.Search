@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 
-namespace RedDog.Search.Model
+namespace Ingen.RedDog.Search.Model
 {
     public class Index
     {

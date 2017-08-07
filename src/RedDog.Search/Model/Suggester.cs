@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 
-namespace RedDog.Search.Model
+namespace Ingen.RedDog.Search.Model
 {
     public class Suggester
     {

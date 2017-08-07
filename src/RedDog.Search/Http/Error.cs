@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace RedDog.Search.Http
+namespace Ingen.RedDog.Search.Http
 {
     public class Error
     {
