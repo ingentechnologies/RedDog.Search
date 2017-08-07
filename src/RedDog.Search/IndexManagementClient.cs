@@ -76,7 +76,7 @@ namespace Ingen.RedDog.Search
 
         public Task<IApiResponse> UpdateSynonymMap(string mapName, SynonymMap map)
         {
-            return _connection.Execute(new ApiRequest("synonymmaps/{0}", HttpMethod.Put) { Body = map }.WithUriParameter(mapName), default(CancellationToken));
+            return _connection.Execute(new ApiRequest(string.Format("synonymmaps/{0}",mapName), HttpMethod.Post) { Body = map }, default(CancellationToken));
         }
 
         /// <summary>
