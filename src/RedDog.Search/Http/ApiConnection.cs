@@ -85,10 +85,10 @@ namespace RedDog.Search.Http
         /// <param name="formatter"></param>
         /// <param name="cancellationToken">cancellation token</param>
         /// <returns></returns>
-        public async Task<IApiResponse<TResponse>> Execute<TResponse>(IApiRequest request, CancellationToken cancellationToken, ResultFormatter<TResponse> formatter = null)
+        public async Task<IApiResponse<TResponse>> Execute<TResponse>(IApiRequest request, CancellationToken cancellationToken, ResultFormatter<TResponse> formatter = null, string version=ApiConstants.DefaultVersion)
         {
             // Send the request.
-            var responseMessage = await _client.SendAsync(BuildRequest(request), cancellationToken)
+            var responseMessage = await _client.SendAsync(BuildRequest(request,version), cancellationToken)
                 .ConfigureAwait(false);
 
             // Build the response.
@@ -119,9 +119,9 @@ namespace RedDog.Search.Http
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        private HttpRequestMessage BuildRequest(IApiRequest request)
+        private HttpRequestMessage BuildRequest(IApiRequest request, string version = ApiConstants.DefaultVersion)
         {
-            var url = BuildUrl(request);
+            var url = BuildUrl(request, version);
             var requestMessage = new HttpRequestMessage(request.Method, url);
             requestMessage.Content = request.Body != null ?
                 new ObjectContent(request.Body.GetType(), request.Body, _formatter, new MediaTypeHeaderValue("application/json")) : requestMessage.Content;
@@ -176,14 +176,14 @@ namespace RedDog.Search.Http
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        private string BuildUrl(IApiRequest request)
+        private string BuildUrl(IApiRequest request, string version=ApiConstants.DefaultVersion)
         {
             string url = request.UriParameters.Count > 0 ?
                 String.Format(request.Uri, request.UriParameters.Select(p => WebUtility.UrlEncode(p) as object).ToArray()) : request.Uri;
             List<string> parameters = request.QueryParameters.Select(
                 p => FormatQueryStringParameter(p.Item1, p.Item2)).ToList();
 
-            parameters.Add(FormatQueryStringParameter("api-version", ApiConstants.Version));
+            parameters.Add(FormatQueryStringParameter("api-version", version));
             return url + "?" + String.Join("&", parameters);
         }
 
