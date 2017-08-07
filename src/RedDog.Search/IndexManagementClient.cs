@@ -73,6 +73,12 @@ namespace Ingen.RedDog.Search
             return DeleteIndexAsync(indexName, default(CancellationToken));
         }
 
+
+        public Task<IApiResponse> UpdateSynonymMap(string mapName, SynonymMap map)
+        {
+            return _connection.Execute(new ApiRequest("synonymmaps/{0}", HttpMethod.Put) { Body = map }.WithUriParameter(mapName), default(CancellationToken));
+        }
+
         /// <summary>
         /// Delete an index.
         /// </summary>
