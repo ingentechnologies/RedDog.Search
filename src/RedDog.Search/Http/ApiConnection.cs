@@ -19,7 +19,7 @@ namespace Ingen.RedDog.Search.Http
 
         private readonly JsonMediaTypeFormatter _formatter;
 
-        internal ApiConnection(Uri baseUri, string apiKey, HttpClientHandler handler)
+        internal ApiConnection(Uri baseUri, string apiKey, HttpClientHandler handler, IContractResolver contractResolver = null)
         {
             BaseUri = baseUri;
 
@@ -29,7 +29,7 @@ namespace Ingen.RedDog.Search.Http
 
             // Configure serialization.
             _formatter = new JsonMediaTypeFormatter();
-            _formatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            _formatter.SerializerSettings.ContractResolver = contractResolver == null ? new CamelCasePropertyNamesContractResolver() : contractResolver;
             _formatter.SerializerSettings.Converters.Add(new StringEnumConverter { CamelCaseText = true });
             _formatter.SerializerSettings.Converters.Add(new XsdDurationConverter());
         }
@@ -40,16 +40,16 @@ namespace Ingen.RedDog.Search.Http
             private set;
         }
 
-        public static ApiConnection Create(Uri baseUri, string apiKey, IWebProxy proxy = null)
+        public static ApiConnection Create(Uri baseUri, string apiKey, IWebProxy proxy = null, IContractResolver contractResolver = null)
         {
             var handler = new HttpClientHandler() { Proxy = proxy };
-            return new ApiConnection(baseUri, apiKey, handler);
+            return new ApiConnection(baseUri, apiKey, handler, contractResolver);
         }
 
-        public static ApiConnection Create(string serviceName, string apiKey, IWebProxy proxy = null)
+        public static ApiConnection Create(string serviceName, string apiKey, IWebProxy proxy = null, IContractResolver contractResolver = null)
         {
             var handler = new HttpClientHandler() { Proxy = proxy };
-            return new ApiConnection(new Uri(String.Format(ApiConstants.BaseUrl, serviceName)), apiKey, handler);
+            return new ApiConnection(new Uri(String.Format(ApiConstants.BaseUrl, serviceName)), apiKey, handler, contractResolver);
         }
 
         /// <summary>
