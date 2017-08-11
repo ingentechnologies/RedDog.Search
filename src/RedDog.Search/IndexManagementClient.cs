@@ -73,11 +73,39 @@ namespace Ingen.RedDog.Search
             return DeleteIndexAsync(indexName, default(CancellationToken));
         }
 
-
-        public Task<IApiResponse> UpdateSynonymMap(string mapName, SynonymMap map)
+        /// <summary>
+        /// Update a named synoynm map
+        /// </summary>
+        /// <param name="mapName"></param>
+        /// <param name="map"></param>
+        /// <returns></returns>
+        public Task<IApiResponse> UpdateSynonymMapAsync(string mapName, SynonymMap map)
         {
             map.Name = mapName;
             return _connection.Execute(new ApiRequest(string.Format("synonymmaps/{0}",mapName), HttpMethod.Put) { Body = map }, default(CancellationToken));
+        }
+
+        /// <summary>
+        /// Delete a named synonym map
+        /// </summary>
+        /// <param name="mapName"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public Task<IApiResponse> DeleteSynonymMapAsync(string mapName, CancellationToken cancellationToken=default(CancellationToken))
+        {
+            
+            return _connection.Execute(new ApiRequest(string.Format("synonymmaps/{0}", mapName), HttpMethod.Delete), cancellationToken);
+        }
+
+        /// <summary>
+        /// Get a named synoynm map
+        /// </summary>
+        /// <param name="mapName"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public Task<IApiResponse<SynonymMap>> GetSynonymMapAsync(string mapName, CancellationToken cancellationToken=default(CancellationToken))
+        {
+            return _connection.Execute<SynonymMap>(new ApiRequest(string.Format("synonymmaps/{0}", mapName), HttpMethod.Get), cancellationToken);
         }
 
         /// <summary>
