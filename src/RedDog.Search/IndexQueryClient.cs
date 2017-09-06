@@ -52,6 +52,8 @@ namespace Ingen.RedDog.Search
                 request.AddQueryParameter("$filter", query.Filter);
             if (!String.IsNullOrEmpty(query.Highlight))
                 request.AddQueryParameter("highlight", query.Highlight);
+            if (!string.IsNullOrEmpty(query.QueryType))
+                request.AddQueryParameter("querytype", query.QueryType);
 
             // Both HighlightPreTag AND HighlightPostTag need to be set together
             if (!String.IsNullOrEmpty(query.HighlightPreTag) && !String.IsNullOrEmpty(query.HighlightPostTag))
